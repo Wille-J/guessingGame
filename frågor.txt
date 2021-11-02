@@ -1,0 +1,87 @@
+Jag siktar på VG och hoppas jag träffar.
+
+1. Add och Commit.
+Svar:
+Add - förbereder filerna för nästa commit. Add lägger dem i staging area. Redo för
+att komma till repositorit i nästa commit.
+Commit - används för att ta det i staging area till repositorit.
+
+2. Pull och Push.
+Svar:
+Pull - är när man kör enladdar ner nytt content remote repositorit.
+Push - är när man laddar upp nytt content till remote repositorit.
+
+3. Log och Status
+Svar: 
+Log - är för att se information om de senaste commits som gjorts.
+Status - är för att se om det är några filer i din branch som behöver åtgärdas.
+
+4. Commit-meddelanden.
+Svar:
+Ta gärna med filens namn och vad man gjort. Tex. "add Hej då to text.txt"
+
+5. VG-fråga.
+Svar:
+Checkout:
+Om man vill gå tillbaka lokalt för att kolla på en tidigare commit kan man göra så med Checkout.
+Man kan skapa en ny branch därifrån eller ändra saker och commita. Detta kan dock skapa konflikt.
+
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git log --oneline -5
+a829efd (HEAD -> master, origin/master) add run_game.sh -script
+7b4aff5 wrote getReply()-method
+0440830 wrote start()-method
+854b203 add GuessingGame.java (main)
+cbe1d02 add Guesser.java
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git checkout 0440830
+Note: switching to '0440830'.
+HEAD is now at 0440830 wrote start()-method
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git switch -
+Previous HEAD position was 0440830 wrote start()-method
+Switched to branch 'master'
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$
+
+
+Revert:
+Om du vill gå tillbaka till en tidigare kommit och börja jobba från och med den utan att ta bort det som gjorts fram tills nu.
+Så kan du använda revert. Blir en ny master branch men du kan se vart du backade tillbaka.
+Även denna är något som är bra att använda lokalt men kan skapa konflikter.
+
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git log --oneline -5
+a829efd (HEAD -> master, origin/master) add run_game.sh -script
+7b4aff5 wrote getReply()-method
+0440830 wrote start()-method
+854b203 add GuessingGame.java (main)
+cbe1d02 add Guesser.java
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git revert 0440830
+Auto-merging Guesser.java
+[master 4b46889] Revert "wrote start()-method"
+ 1 file changed, 2 deletions(-)
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git log --oneline -5
+4b46889 (HEAD -> master) Revert "wrote start()-method"
+a829efd (origin/master) add run_game.sh -script
+7b4aff5 wrote getReply()-method
+0440830 wrote start()-method
+854b203 add GuessingGame.java (main)
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$
+
+
+Reset:
+Något gjordes riktigt fel och du vill gå tillbaka och inte komma ihåg det som gjorts.
+Då kan du använda reset som går tillbaka och nollställer framåt. Så du inte kan gå fram till den revitionen igen.
+
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git log --oneline -5
+a829efd (HEAD -> master, origin/master) add run_game.sh -script
+7b4aff5 wrote getReply()-method
+0440830 wrote start()-method
+854b203 add GuessingGame.java (main)
+cbe1d02 add Guesser.java
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git reset 0440830
+Unstaged changes after reset:
+M       Guesser.java
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$ git log --oneline -5
+0440830 (HEAD -> master) wrote start()-method
+854b203 add GuessingGame.java (main)
+cbe1d02 add Guesser.java
+eea3bcc add downloaded Guesser.java
+4201f7c add .gitignore with start content
+wille@LAPTOP-FF2LAHVL:/mnt/c/Users/wilhe/_Inlämning_1/guessingGame$
