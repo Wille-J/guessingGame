@@ -1,8 +1,8 @@
-echo "Wilhelm Junger"
+echo "Wilhelm Jungers program"
 mkdir Wilhelm_Junger_labb
 cp *.java Wilhelm_Junger_labb
 cd Wilhelm_Junger_labb
-pwd
+echo "Running game from:" `pwd`
 echo "Now we compile..."
 javac *.java
 echo "Running the game in..."
